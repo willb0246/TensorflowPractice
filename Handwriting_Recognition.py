@@ -17,6 +17,9 @@ def  train_mnist():
 
     (pic_train, label_train), (pic_test, label_test) = mnist.load_data(path=data)
 
+    pic_train = pic_train / 255.0
+    pic_test = pic_test / 255.0
+
     model = tf.keras.models.Sequential([tf.keras.layers.Flatten(),
                                         tf.keras.layers.Dense(128, activation='relu'),
                                         tf.keras.layers.Dense(10, activation='softmax')])
